@@ -1,16 +1,10 @@
-
-
-#import numpy as np
 from numpy import load
 from flask import Flask, request, jsonify, render_template, url_for
 import pickle
-#import pandas as pd
 from pandas import Series, read_csv
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import rbf_kernel
 import requests
-#from PIL import ImageTk, Image
-#from io import BytesIO
 import bs4
 from bs4 import BeautifulSoup
 app = Flask(__name__)
@@ -71,8 +65,6 @@ def my_form():
 def my_get():
     if request.method == "POST":
         movie = request.form['nm']
-        print(movie)
-        print(type(movie))
         not_found = 'not_found'
         if (df['movie_title'] == movie).sum() > 0:
             movie = recommendation(movie, rbf_ker_tfidf)
