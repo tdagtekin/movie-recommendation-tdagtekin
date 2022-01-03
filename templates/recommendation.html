@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block head %} 
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Movie Recommendation</title>
+        <style>
+            body {margin: 0;font-family: Arial, Helvetica, sans-serif;background-color: rgb(219, 219, 219);}
+            .topnav {overflow: hidden;background-color: #333;}
+            .topnav a {float: left;color: #f2f2f2;text-align: center;padding: 14px 16px;text-decoration: none; font-size: 17px;}
+            .topnav a:hover {background-color: #ddd;color: black;}
+            .topnav a.active {background-color: #04AA6D;color: white;}
+            * {box-sizing: border-box;}
+            .row {display: flex;}
+            .column {flex: 33.33%;padding: 5px;}
+            .forum{padding: 10px;}
+            .button{height:40px;width:60px;}
+            .whi{color: cornsilk;left:10px;}
+            
+        </style>
+    </head>
+{% endblock %}
+{% block body %} 
+
+<div class="topnav">
+    <a class="active" href="#">Home</a>
+    <p class="whi">Movie Recommendation</p>
+</div>
+
+<form method="POST">
+    <input type="nm" placeholder="Search" name="nm" size='50'>
+    <button type="submit" class="button">Submit</button>
+  </form>
+
+<div class="row">
+    <div class="column">
+        <h2> {{movie.iloc[0]}}</h2>
+        <img src={{imgs[0]}}  alt=""width="200" height="300">   
+    </div>
+    <div class="column">
+        <h2> {{movie.iloc[1]}}</h2>
+        <img src={{imgs[1]}}  alt="" width="200" height="300">
+    </div>
+    <div class="column">
+        <h2> {{movie.iloc[2]}}</h2>
+        <img src={{imgs[2]}}  alt="" width="200" height="300">
+    </div>
+    <div class="column">
+        <h2> {{movie.iloc[3]}}</h2>
+        <img src={{imgs[3]}} alt="" width="200" height="300">
+
+    </div>
+    <div class="column">
+        <h2> {{movie.iloc[4]}}</h2>
+        <img src={{imgs[4]}}  alt="" width="200" height="300">
+    </div>
+  </div>
+{%for i in movie%}
+{%endfor%}
+<p> </p>
+<h3> The movies are listed </h3>
+{% endblock %}
